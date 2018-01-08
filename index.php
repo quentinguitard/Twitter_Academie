@@ -1,6 +1,8 @@
 <?php 
 require "controllers/HomeController.php";
+require "controllers/User.php";
 require "models/database.php";
+require "models/usermanager.php";
 
 
 
