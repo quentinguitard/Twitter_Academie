@@ -5,7 +5,7 @@ require "models/database.php";
 require "models/usermanager.php";
 
 
-
+session_start();
 $_controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
 $_action = isset($_GET['action']) ? $_GET['action'] : 'index';
 $controller_name = ucfirst($_controller) . 'Controller';

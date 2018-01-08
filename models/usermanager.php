@@ -33,8 +33,8 @@ class UserManager
                 $stmt = $this->_db->query($sql);
                 $row = $stmt->fetch();
                 if($row['password'] == hash('ripemd160',$password)){
-                        $exist = array($row['id'], true);
-                        return $exist;
+                        $exist = array($row['idUser'], true);
+                        return $exist; 
                 }
                 else{
                         echo "Connection failed. Wrong user or password";

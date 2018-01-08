@@ -84,12 +84,35 @@ $usermanager = new UserManager($db);
 		</div>
 	</div> 
 
-
 		<?php 
 		if(!empty($_POST['envoyer']) && !empty($_POST['displayName']) && !empty($_POST['fullName']) && !empty($_POST['mail']) && !empty($_POST['password'])){
 			$user = new User($_POST['fullName'],$_POST['displayName'],$_POST['mail'],$_POST['password']);
 			$usermanager->create($user);
 		}
 		?>
+
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="mail">Email address:</label>
+                <input type="mail" class="form-control" id="mail" name="mail">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name='password'>
+            </div>
+            <input type="submit" class="btn btn-default" value='Login' name="login">
+        </form>
+<?php
+if(!empty($_POST['login']))
+    {
+        if($usermanager->exist($_POST['mail'], $_POST['password'])[1] == true){
+            $_GET['controller'] = 'home';
+            $_SESSION['idUser'] = $usermanager->exist($_POST['mail'], $_POST['password'])[0];
+            echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
+        }
+        
+    }
+    ?>
+
 	</body>
 	</html>
