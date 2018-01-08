@@ -328,12 +328,7 @@ $usermanager = new UserManager($db);
 			</div>
 <?php 
 if(!empty($_POST['envoyer']) && !empty($_POST['displayName']) && !empty($_POST['fullName']) && !empty($_POST['mail']) && !empty($_POST['password'])){
-	$user = new User([
-		'displayName' => $_POST['displayName'],
-		'fullName' => $_POST['fullName'],
-		'mail' => $_POST['mail'],
-		'password' => $_POST['password']
-		]);
+	$user = new User($_POST['fullName'],$_POST['displayName'],$_POST['mail'],$_POST['password']);
 	$usermanager->create($user);
 }
 ?>

@@ -11,12 +11,20 @@ class User
 	private $_theme;
 	private $_userStatus;
 
-	function __construct(array $data)
+	function __construct($fullName, $displayName, $mail, $password, $avatar = NULL, $theme = NULL, $userStatus = true)
 	{
-		$this->hydrate($data);
+		$this->setFullName($fullName);
+		$this->setDisplayName($displayName);
+		$this->setMail($mail);
+		$this->setPassword($password);
+		$this->setAvatar($avatar);
+		$this->setTheme($theme);
+		$this->setUserStatus($userStatus);
+	/*	$this->hydrate($data);*/
 	}
 
-	public function hydrate(array $data){
+
+/*	public function hydrate(array $data){
 
 		foreach ($data as $key => $value) {
 			$key = ucwords($key, '_');
@@ -25,7 +33,8 @@ class User
 				$this->$key($value);
 			}
 		}
-	}
+	}*/
+
 
 	public function getFullName(){
 		return $this->_fullName;
@@ -49,6 +58,7 @@ class User
 		return $this->_userStatus;
 	}
 
+
 	public function setFullName($fullName){
 		$this->_fullName = $fullName;
 	}
@@ -67,7 +77,7 @@ class User
 	public function setTheme($theme=NULL){
 		$this->_theme = $theme;
 	}
-	public function setUserStatus($userStatus){
+	public function setUserStatus($userStatus = 'Enable'){
 		$this->_userStatus = $userStatus;
 	}		
 
