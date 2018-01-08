@@ -12,6 +12,7 @@ class UserManager
 	public function create(User $user){
 		$sql = "INSERT INTO user (fullName, displayName, mail, password, avatar, theme, registrationDate, userStatus) VALUES (?,?,?,?,?,?,now(), 'Enable')";
         $stmt = $this->_db->prepare($sql);
+
         $stmt->bindValue(1, $user->getFullName());
         $stmt->bindValue(2, $user->getDisplayName());
         $stmt->bindValue(3, $user->getMail());
@@ -22,3 +23,4 @@ class UserManager
 	}
 
 }
+
