@@ -31,7 +31,7 @@ class User
 		return $this->_fullName;
 	}
 	public function getDisplayName(){
-		return $this->_prenom;
+		return $this->_displayName;
 	}
 	public function getMail(){
 		return $this->_mail;
@@ -61,10 +61,10 @@ class User
 	public function setPassword($password){
 		$this->_password = $password;
 	}
-	public function setAvatar($avatar){
+	public function setAvatar($avatar=NULL){
 		$this->_avatar = $avatar;
 	}
-	public function setTheme($theme){
+	public function setTheme($theme=NULL){
 		$this->_theme = $theme;
 	}
 	public function setUserStatus($userStatus){
