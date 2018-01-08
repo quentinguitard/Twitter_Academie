@@ -18,7 +18,6 @@ class UserManager
         $stmt->bindValue(4, $user->getPassword());
         $stmt->bindValue(5, $user->getAvatar());
         $stmt->bindValue(6, $user->getTheme());
-        $stmt->bindValue(7, $user->getGenre());
         $stmt->execute();	
 	}
 
