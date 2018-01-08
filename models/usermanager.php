@@ -41,5 +41,18 @@ class UserManager
                 }
         }
 
+        public function verification($mail, $displayName){
+                $sql = "SELECT mail, displayName FROM user WHERE mail = '$mail' OR displayName = '$displayName'";
+                $stmt = $this->_db->query($sql);
+                $row = $stmt->fetch();
+                if($row['mail'] == $mail || $row['displayName'] == $displayName){
+                        return false;
+                }
+                else {
+                        return true;
+                }
+
+        }
+
 }
 

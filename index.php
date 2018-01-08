@@ -1,12 +1,13 @@
 <?php 
 require "controllers/HomeController.php";
+require "controllers/AuthController.php";
 require "controllers/User.php";
 require "models/database.php";
 require "models/usermanager.php";
 
 
 session_start();
-$_controller = isset($_GET['controller']) ? $_GET['controller'] : 'home';
+$_controller = isset($_GET['controller']) ? $_GET['controller'] : 'auth';
 $_action = isset($_GET['action']) ? $_GET['action'] : 'index';
 $controller_name = ucfirst($_controller) . 'Controller';
 if(class_exists($controller_name)){
