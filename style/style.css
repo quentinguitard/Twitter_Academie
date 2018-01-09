@@ -1,0 +1,149 @@
+
+
+body{
+    background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');
+    padding:50px;
+}
+
+
+@font-face {
+	font-family: 'Scriptin';
+	src: url('style/font/SCRIPTIN.ttf');
+}
+
+/*navbar*/
+.container-fluid {
+	width: 100%;
+}
+
+.navbar-hearder {
+	margin: auto;
+}
+
+.navbar-header img {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+
+.navbar {
+	margin-top: -50px !important;
+	margin-left: -50px !important;
+	margin-right: -50px !important;
+	border-radius: 0px;
+}
+
+.navbar-brand {
+	font-family: Scriptin;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+    position: absolute !important;
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	z-index: 1000;
+	float: left;
+	margin: 2px 0 0;
+	font-size: 14px;
+	text-align: left;
+	list-style: none;
+	background-clip: padding-box;
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 4px;
+	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+/*formulaire inscription */
+
+.panel-heading {
+	background-color: #A9CCE3;
+}
+
+#loginbox {
+	margin-top: 50px;
+}
+
+.panel-body {
+	padding-top: 30px;
+}
+
+#login-alert {
+	display: none;
+}
+
+.form-group {
+	margin-bottom: 25px !important;
+	margin-top:10px !important;
+	margin-left: 30px !important;
+	margin-right: 30px !important;
+}
+
+.log {
+	border-top: 1px solid #888; 
+	padding-top:15px; 
+	font-size:85%
+	padding-left: 70px !important;
+}
+
+.input-group {
+	margin-left: 30px !important;
+}
+
+.col-sm-12 {
+	padding-left: 0;
+	margin-top: 10px;
+	margin-left: 180px;
+}
+
