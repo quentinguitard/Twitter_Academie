@@ -20,21 +20,7 @@ class User
 		$this->setAvatar($avatar);
 		$this->setTheme($theme);
 		$this->setUserStatus($userStatus);
-	/*	$this->hydrate($data);*/
 	}
-
-
-/*	public function hydrate(array $data){
-
-		foreach ($data as $key => $value) {
-			$key = ucwords($key, '_');
-			$key = 'set'.str_replace('_', '', $key);
-			if(method_exists($this, $key)){
-				$this->$key($value);
-			}
-		}
-	}*/
-
 
 	public function getFullName(){
 		return $this->_fullName;

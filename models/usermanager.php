@@ -25,7 +25,7 @@ class UserManager
                 $sql = "SELECT * FROM user WHERE idUser = " . $id;
                 $stmt = $this->_db->query($sql);
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                return new $user($row['fullName'],$row['displayName'], $row['mail'], $row['password'], $row['avatar'], $row['theme'], $row['registrationDate'], $row['userStatus']);
+                return $row;
         }
 
         public function exist($mail, $password){
@@ -52,6 +52,18 @@ class UserManager
                         return true;
                 }
 
+        }
+
+        public function update($id){
+                $sql = "UPDATE user SET fullName = ?, displayName = ?, mail = ?, password = ?, avatar = ?, theme = ? WHERE id =" . $id;
+                $stmt = $this->_db->prepare($sql);
+                $stmt->bindValue(1, $user->getFullName(), PDO::PARAM_STR);
+                $stmt->bindValue(2, $user->getDisplayName(), PDO::PARAM_STR);
+                $stmt->bindValue(3, $user->getMail(), PDO::PARAM_STR);
+                $stmt->bindValue(4, hash('ripemd160',$user->getPassword()), PDO::PARAM_STR);
+                $stmt->bindValue(5, $user->getAvatar(), PDO::PARAM_STR);
+                $stmt->bindValue(6, $user->getTheme(), PDO::PARAM_STR);
+                $stmt->execute();
         }
 
 }

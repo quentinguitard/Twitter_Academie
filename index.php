@@ -2,6 +2,8 @@
 require "controllers/HomeController.php";
 require "controllers/AuthController.php";
 require "controllers/User.php";
+require "controllers/Tweet.php";
+require "models/tweetmanager.php";
 require "models/database.php";
 require "models/usermanager.php";
 
