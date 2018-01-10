@@ -19,7 +19,7 @@ Class TweetManager {
         $stmt->execute();
 
     }
-    public function showMyTweets($id){
+    public function showTweets($id){
     	$sql = "SELECT tweetContent, user.displayName FROM tweet JOIN user ON user.idUser = tweet.idUser WHERE user.idUser =" .$id;
     	$stmt = $this->_db->query($sql);
     	$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
