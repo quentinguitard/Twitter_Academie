@@ -12,9 +12,10 @@ Class TweetManager {
 
     public function postTweet(Tweet $tweet){
     	$sql = "INSERT INTO tweet (idUser, tweetContent) VALUES (?,?)";
+        var_dump($sql);
 
-    	$stmt = $this->_db->prepare($sql);
-    	$stmt->bindValue(1, $tweet->getIdUser(), PDO::PARAM_STR);
+        $stmt = $this->_db->prepare($sql);
+        $stmt->bindValue(1, $tweet->getIdUser(), PDO::PARAM_STR);
         $stmt->bindValue(2, $tweet->getTweetContent(), PDO::PARAM_STR);
         $stmt->execute();
 
@@ -22,19 +23,17 @@ Class TweetManager {
     public function showTweets($id){
 
     	$sql = "SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
-				JOIN follow ON follow.idFollower=tweet.idUser 
-				JOIN user ON user.idUser = tweet.idUser
-				WHERE idFollower='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
-				UNION
-				SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
-				JOIN follow ON follow.idFollowed=tweet.idUser 
-				JOIN user ON user.idUser = tweet.idUser
-				WHERE idFollower='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
-				ORDER BY tweetDate DESC";
+                JOIN follow ON follow.idFollower=tweet.idUser 
+                JOIN user ON user.idUser = tweet.idUser
+                WHERE idFollower= ".$id." OR idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = ".$id.")
+UNION
+SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
+                JOIN user ON user.idUser = tweet.idUser
+                WHERE tweet.idUser= ".$id." ORDER BY tweetDate DESC";
 
     	$stmt = $this->_db->query($sql);
     	$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    	var_dump($row);
+        
         return $row;
     } 
 

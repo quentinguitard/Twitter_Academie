@@ -4,16 +4,16 @@ class Tweet {
 
 	private $_idUser;
 	private $_tweetContent;
-	private $_tweetImg;
+	private $_imgUrl;
 	private $_idReTweet;
 	private $_idReTweetFrom;
 	private $_deleted;
 
-	public function __construct($idUser, $tweetContent, $tweetImg = null, $idReTweet = null, $idReTweetFrom = null, $deleted = true){
+	public function __construct($idUser, $tweetContent, $imgUrl = null, $idReTweet = null, $idReTweetFrom = null, $deleted = true){
 
 		$this->setIdUser($idUser);
 		$this->setTweetContent($tweetContent);
-		$this->setTweetImg($tweetImg);
+		$this->setImgUrl($imgUrl);
 		$this->setIdReTweet($idReTweet);
 		$this->setIdReTweetFrom($idReTweetFrom);
 		$this->setDeleted($deleted);
@@ -26,8 +26,8 @@ class Tweet {
 	public function getTweetContent(){
 		return $this->_tweetContent;
 	}
-	public function getTweetImg(){
-		return $this->_tweetImg;
+	public function getImgUrl(){
+		return $this->imgUrl;
 	}
 	public function getIdReTweet(){
 		return $this->_idReTweet;
@@ -45,8 +45,8 @@ class Tweet {
 	public function setTweetContent($tweetContent){
 		$this->_tweetContent = $tweetContent;
 	}
-	public function setTweetImg($tweetImg = null){
-		$this->_tweetImg = $tweetImg;
+	public function setImgUrl($imgUrl = null){
+		$this->imgUrl = $imgUrl;
 	}
 	public function setIdReTweet($idReTweet = null){
 		$this->_idReTweet = $idReTweet;

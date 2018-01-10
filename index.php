@@ -23,5 +23,4 @@ else{
 	die('Class '. $controller_name . ' not found');
 }
 
-
 ?>
