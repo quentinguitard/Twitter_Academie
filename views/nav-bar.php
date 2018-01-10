@@ -21,7 +21,7 @@
 					<li><a href="index.php?controller=home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Acceuil<span class="sr-only"></span></a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notifications</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messages</a></li>
-					<li><img src="image/logo.png" /><a class="navbar-brand" href="#">Tweet Academy</a></li>
+					<li><img src="image/logo.png" /><a class="navbar-brand" href="index.php">Tweet Academy</a></li>
 				</ul>
 
 				<form class="navbar-form navbar-left">
