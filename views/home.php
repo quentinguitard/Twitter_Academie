@@ -3,7 +3,8 @@ $database = new Database();
 $db = $database->getConnection();
 $usermanager = new UserManager($db); 
 $gertrude = new TweetManager($db);
-$row = $gertrude->showMyTweets($_SESSION['idUser']);
+$row = $gertrude->showTweets(6);
+$gertrude->reTweet(1, $_SESSION['idUser']);
 $countRow = count($row);
 ?>
 <!DOCTYPE html>
