@@ -5,7 +5,7 @@ $usermanager = new UserManager($db);
 $gertrude = new TweetManager($db);
 
 $row = $gertrude->showTweets($_SESSION['idUser']);
-
+var_dump($_SESSION['idUser']);
 
 $gertrude->reTweet(1, $_SESSION['idUser']);
 
@@ -34,7 +34,7 @@ include "nav-bar.php";
 			<div class="col-sm-3 well">
 				<div class="well">
 					<p><a href="index.php?controller=profile">My Profile</a></p>
-					<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+					<img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar">
 				</div>
 				<div class="well">
 					<p><a href="#">Interests</a></p>
@@ -63,7 +63,7 @@ include "nav-bar.php";
 						<div class="panel panel-default text-left">
 							<div class="panel-body">
 								<form method="post" action="">
-									<input name="tweetContent" type="textarea">
+									<input class="text" name="tweetContent" type="textarea">
 									<input type="submit" class="btn btn-info" name="envoyer" value="Tweeter">
 									<a type="button" class="glyphicon glyphicon-picture"></a>
 								</form>  
@@ -75,14 +75,41 @@ include "nav-bar.php";
 				<div class="row">
 
 					<div class="col-sm-9">
-						<div class="well">
-							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+						<div class="arianne well">
+							<?php 
+
+
+$usermanager->select($_SESSION['idUser']);
+
+
+if(!empty($_POST['envoyer'])){
+
+
+	$bob = new Tweet($_SESSION['idUser'],$_POST['tweetContent']);
+
+	var_dump($bob);
+
+	$gertrude->postTweet($bob);
+
+}
+
+
+
+
+
+for($i = 0 ; $i < $countRow; $i++){ ?>
+<h1><?php echo $row[$i]['displayName']; ?></h1>
+<p><?php echo $row[$i]['tweetContent']; ?></p>
+<?php
+}
+
+?>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-9">
-						<div class="well">
+						<div class="arianne well">
 							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
 						</div>
 					</div>
@@ -90,7 +117,7 @@ include "nav-bar.php";
 				<div class="row">
 					
 					<div class="col-sm-9">
-						<div class="well">
+						<div class="arianne well">
 							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
 						</div>
 					</div>
@@ -98,7 +125,7 @@ include "nav-bar.php";
 				<div class="row">
 					
 					<div class="col-sm-9">
-						<div class="well">
+						<div class="arianne well">
 							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
 						</div>
 					</div>
