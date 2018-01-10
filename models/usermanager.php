@@ -66,5 +66,7 @@ class UserManager
                 $stmt->execute();
         }
 
+        public function followUser($idUser,$idFollow)
+
 }
 
