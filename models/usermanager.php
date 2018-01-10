@@ -66,7 +66,11 @@ class UserManager
                 $stmt->execute();
         }
 
-        public function followUser($idUser,$idFollow)
+        public function followUser($idUser,$idFollow){
+                $sql = "INSERT INTO follow (idFollowed, idFollower) VALUES (".$idFollow.",".$idUser.")";
 
+        }
+
+        public function searchProfil(){}
 }
 
