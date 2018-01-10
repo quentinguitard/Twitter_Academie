@@ -27,9 +27,8 @@ Class TweetManager {
 				WHERE idFollower='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
 				UNION
 				SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
-				JOIN follow ON follow.idFollowed=tweet.idUser 
 				JOIN user ON user.idUser = tweet.idUser
-				WHERE idFollower='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
+				WHERE tweet.idUser=".$id."
 				ORDER BY tweetDate DESC";
 
     	$stmt = $this->_db->query($sql);
