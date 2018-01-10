@@ -6,6 +6,9 @@ $gertrude = new TweetManager($db);
 
 $row = $gertrude->showTweets($_SESSION['idUser']);
 var_dump($_SESSION['idUser']);
+
+$gertrude->reTweet(1, $_SESSION['idUser']);
+
 $countRow = count($row);
 
 ?>
@@ -75,6 +78,10 @@ include "nav-bar.php";
 						<div class="arianne well">
 							<?php 
 
+
+$usermanager->select($_SESSION['idUser']);
+
+
 if(!empty($_POST['envoyer'])){
 
 
@@ -85,6 +92,10 @@ if(!empty($_POST['envoyer'])){
 	$gertrude->postTweet($bob);
 
 }
+
+
+
+
 
 for($i = 0 ; $i < $countRow; $i++){ ?>
 <h1><?php echo $row[$i]['displayName']; ?></h1>
@@ -141,6 +152,64 @@ for($i = 0 ; $i < $countRow; $i++){ ?>
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
 	</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>VOILA</h1>
+
+<form method="post" action="">
+	<input name="tweetContent" type="textarea">
+	<input type="submit" name="envoyer" value="envoyer">
+</form>
+
+
+<h2>Joyeux Anniversaire</h2>
+<?php 
+
+
+$usermanager->select($_SESSION['idUser']);
+
+
+if(!empty($_POST['envoyer'])){
+
+
+	$bob = new Tweet($_SESSION['idUser'],$_POST['tweetContent']);
+
+	var_dump($bob);
+
+	$gertrude->postTweet($bob);
+
+}
+
+
+
+
+
+for($i = 0 ; $i < $countRow; $i++){ ?>
+<h1><?php echo $row[$i]['displayName']; ?></h1>
+<p><?php echo $row[$i]['tweetContent']; ?></p>
+<?php
+}
+
+?>
 
 </body>
 </html>

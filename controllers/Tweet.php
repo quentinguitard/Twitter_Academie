@@ -27,7 +27,7 @@ class Tweet {
 		return $this->_tweetContent;
 	}
 	public function getImgUrl(){
-		return $this->imgUrl;
+		return $this->_imgUrl;
 	}
 	public function getIdReTweet(){
 		return $this->_idReTweet;
@@ -46,7 +46,7 @@ class Tweet {
 		$this->_tweetContent = $tweetContent;
 	}
 	public function setImgUrl($imgUrl = null){
-		$this->imgUrl = $imgUrl;
+		$this->_imgUrl = $imgUrl;
 	}
 	public function setIdReTweet($idReTweet = null){
 		$this->_idReTweet = $idReTweet;

@@ -177,8 +177,8 @@ if(!empty($_POST['login']))
     if($usermanager->exist($_POST['mail'], $_POST['password'])[1] == true){
         $_GET['controller'] = 'home';
         $_SESSION['idUser'] = $usermanager->exist($_POST['mail'], $_POST['password'])[0];
-        var_dump($_SESSION);
         echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
+        echo "C'est bon tes co !";
     }
 
 }
