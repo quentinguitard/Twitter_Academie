@@ -73,7 +73,7 @@ $countRow = count($row);
 		<div class="row">
 			<div class="col-sm-3 well">
 				<div class="well">
-					<p><a href="#">My Profile</a></p>
+					<p><a href="index.php?controller=profile">My Profile</a></p>
 					<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
 				</div>
 				<div class="well">
