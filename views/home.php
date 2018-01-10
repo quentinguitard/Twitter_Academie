@@ -105,7 +105,7 @@ $countRow = count($row);
 								<form method="post" action="">
 									<input name="tweetContent" type="textarea">
 									<input type="submit" class="btn btn-info" name="envoyer" value="Tweeter">
-									<button type="button" class="glyphicon glyphicon-picture">
+									<a type="button" class="glyphicon glyphicon-picture"></a>
 								</form>  
 							</div>
 						</div>
