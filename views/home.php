@@ -7,8 +7,6 @@ $gertrude = new TweetManager($db);
 $row = $gertrude->showTweets($_SESSION['idUser']);
 var_dump($_SESSION['idUser']);
 
-$gertrude->reTweet(1, $_SESSION['idUser']);
-
 $countRow = count($row);
 
 ?>
@@ -78,10 +76,11 @@ include "nav-bar.php";
 						<div class="arianne well">
 <?php 
 $usermanager->select($_SESSION['idUser']);
-
 if(!empty($_POST['envoyer'])){
-    $bob = new Tweet($_SESSION['idUser'],$_POST['tweetContent']);
-    $gertrude->postTweet($bob);
+echo "BONJOURS TOUT LE MONDE ";
+$bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
+$gertrude->postTweet($bob);
+
 }
 
 

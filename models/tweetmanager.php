@@ -33,7 +33,6 @@ Class TweetManager {
 
     	$stmt = $this->_db->query($sql);
     	$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    	var_dump($row);
         return $row;
     } 
 
