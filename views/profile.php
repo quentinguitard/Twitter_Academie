@@ -79,6 +79,7 @@ $countRow = count($row);
 				
 				
 				<h1><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h1>
+
 				<p><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				
 
