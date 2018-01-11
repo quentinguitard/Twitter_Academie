@@ -23,9 +23,9 @@ $countRow = count($row);
 	<title>Tweet Academy</title>
 </head>
 <body>
-<?php
-include "nav-bar.php";
-?>
+	<?php
+	include "nav-bar.php";
+	?>
 
 	<div class="container text-center">    
 		<div class="row">
@@ -73,71 +73,52 @@ include "nav-bar.php";
 				<div class="row">
 
 					<div class="col-sm-9">
-						<div class="arianne well">
-<?php 
-$usermanager->select($_SESSION['idUser']);
-if(!empty($_POST['envoyer'])){
+						
+						<?php 
+						$usermanager->select($_SESSION['idUser']);
+						if(!empty($_POST['envoyer'])){
 
-$bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
-$gertrude->postTweet($bob);
+							$bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
+							$gertrude->postTweet($bob);
+							$_GET['controller'] = 'home';
+							echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."');</script>";
 
-}
-for($i = 0 ; $i < $countRow; $i++){ ?>
-<h1><?php echo $row[$i]['displayName']; ?></h1>
-<p><?php echo $row[$i]['tweetContent']; ?></p>
-<p><?php echo $row[$i]['tweetDate']; ?></p>
-<?php
-}
-var_dump($_POST);
-?>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-9">
+						}
+						for($i = 0 ; $i < $countRow; $i++){ ?>
 						<div class="arianne well">
-							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+							<h1><?php echo $row[$i]['displayName']; ?></h1>
+							<p><?php echo $row[$i]['tweetContent']; ?></p>
+							<p><?php echo $row[$i]['tweetDate']; ?></p>
 						</div>
-					</div>
+						<?php
+					}
+					var_dump($_POST);
+					?>
 				</div>
-				<div class="row">
-					
-					<div class="col-sm-9">
-						<div class="arianne well">
-							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					
-					<div class="col-sm-9">
-						<div class="arianne well">
-							<p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-						</div>
-					</div>
-				</div>     
 			</div>
-			<div class="col-sm-2 well">
-				<div class="thumbnail">
-					<p>Upcoming Events:</p>
-					<img src="paris.jpg" alt="Paris" width="40" height="30">
-					<p><strong>Paris</strong></p>
-					<p>Fri. 27 November 2015</p>
-					<button class="btn btn-primary">Info</button>
-				</div>      
-				<div class="well">
-					<p>ADS</p>
-				</div>
-				<div class="well">
-					<p>ADS</p>
-				</div>
+
+		</div>
+		<div class="col-sm-2 well">
+			<div class="thumbnail">
+				<p>Upcoming Events:</p>
+				<img src="paris.jpg" alt="Paris" width="40" height="30">
+				<p><strong>Paris</strong></p>
+				<p>Fri. 27 November 2015</p>
+				<button class="btn btn-primary">Info</button>
+			</div>      
+			<div class="well">
+				<p>ADS</p>
+			</div>
+			<div class="well">
+				<p>ADS</p>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
+<footer class="container-fluid text-center">
+	<p><span class="glyphicon glyphicon-copyright-mark"> Tweet Academy</span></p>
+</footer>
 
 </body>
 </html>

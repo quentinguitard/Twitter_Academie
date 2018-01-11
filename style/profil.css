@@ -1,0 +1,45 @@
+.nav img {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-left: 250px;
+}
+
+.form-group {
+	margin: 0 !important;
+	padding-left: 200px;
+}
+
+.navbar-form button {
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	padding-left: 7px !important;
+	padding-right: 7px !important;
+	border-radius: 3px !important;
+}
+
+.glyphicon {
+	line-height: normal !important;
+	top: 2px !important;
+}
+
+.btn-group {
+	margin-top: 10px !important;
+}
+
+.text {
+	height: 80px;
+	width: 540px;
+	border-radius: 4px;
+}
+
+.arianne {
+	width: 650px;
+	padding: 15px;
+}
+
+footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }

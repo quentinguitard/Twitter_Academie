@@ -1,4 +1,5 @@
 <?php
+
 $database = new Database();
 $db = $database->getConnection();
 $usermanager = new UserManager($db); 
