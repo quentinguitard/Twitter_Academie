@@ -22,9 +22,9 @@ Class TweetManager {
     public function showTweets($id){
 
     	$sql = "SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
-				JOIN follow ON follow.idFollower=tweet.idUser 
+				JOIN follow ON follow.idFollowed=tweet.idUser 
 				JOIN user ON user.idUser = tweet.idUser
-				WHERE idFollower='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
+				WHERE idFollower ='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
 				UNION
 				SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
 				JOIN user ON user.idUser = tweet.idUser

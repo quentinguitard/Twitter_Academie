@@ -73,24 +73,28 @@ include "nav-bar.php";
 				<div class="row">
 
 					<div class="col-sm-9">
-						<div class="arianne well">
+						
 <?php 
 $usermanager->select($_SESSION['idUser']);
 if(!empty($_POST['envoyer'])){
 
-$bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
-$gertrude->postTweet($bob);
+    $bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
+    $gertrude->postTweet($bob);
+    $_GET['controller'] = 'home';
+    echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
 
 }
 for($i = 0 ; $i < $countRow; $i++){ ?>
-<h1><?php echo $row[$i]['displayName']; ?></h1>
-<p><?php echo $row[$i]['tweetContent']; ?></p>
-<p><?php echo $row[$i]['tweetDate']; ?></p>
+<div class="arianne well">
+    <h1><?php echo $row[$i]['displayName']; ?></h1>
+    <p><?php echo $row[$i]['tweetContent']; ?></p>
+    <p><?php echo $row[$i]['tweetDate']; ?></p>
+</div>
 <?php
 }
 var_dump($_POST);
 ?>
-						</div>
+						
 					</div>
 				</div>
 				<div class="row">

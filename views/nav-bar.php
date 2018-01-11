@@ -30,7 +30,15 @@
 				</form>
 
 				<div class="btn-group">
-					<button type="button" class="btn btn-info">Tweeter</button>
+					<form method="post">
+						<input type="submit" class="btn btn-info" value="Deconection" name="disconect">
+					</form>
+<?php
+if(!empty($_POST['disconect'])){
+	session_destroy();
+    echo "<script> window.location.assign('index.php'); </script>";
+}
+?>
 
 				</div>
 
