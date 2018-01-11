@@ -74,6 +74,7 @@ $countRow = count($row);
 
 					<div class="col-sm-9">
 						
+
 						<?php 
 						$usermanager->select($_SESSION['idUser']);
 						if(!empty($_POST['envoyer'])){
@@ -85,6 +86,8 @@ $countRow = count($row);
 
 						}
 						for($i = 0 ; $i < $countRow; $i++){ ?>
+
+
 						<div class="arianne well">
 							<h1><?php echo $row[$i]['displayName']; ?></h1>
 							<p><?php echo $row[$i]['tweetContent']; ?></p>
