@@ -5,7 +5,7 @@ $usermanager = new UserManager($db);
 $gertrude = new TweetManager($db);
 
 $row = $gertrude->showTweets($_SESSION['idUser']);
-var_dump($_SESSION['idUser']);
+
 
 $countRow = count($row);
 
@@ -35,26 +35,9 @@ $countRow = count($row);
 				<div class="well">
 					<p><a href="index.php?controller=profile">My Profile</a></p>
 					<img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+					<h4><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
+					<p><a href="#">@<?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				</div>
-				<div class="well">
-					<p><a href="#">Interests</a></p>
-					<p>
-						<span class="label label-default">News</span>
-						<span class="label label-primary">W3Schools</span>
-						<span class="label label-success">Labels</span>
-						<span class="label label-info">Football</span>
-						<span class="label label-warning">Gaming</span>
-						<span class="label label-danger">Friends</span>
-					</p>
-				</div>
-				<div class="alert alert-success fade in">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-					<p><strong>Ey!</strong></p>
-					People are looking at your profile. Find out who.
-				</div>
-				<p><a href="#">Link</a></p>
-				<p><a href="#">Link</a></p>
-				<p><a href="#">Link</a></p>
 			</div>
 			<div class="col-sm-7">
 
@@ -91,13 +74,18 @@ $countRow = count($row);
 
 
 						<div class="arianne well">
-							<h1><?php echo $row[$i]['displayName']; ?></h1>
-							<p><?php echo $row[$i]['tweetContent']; ?></p>
-							<p><?php echo $row[$i]['tweetDate']; ?></p>
+							<div class="well">
+								<h1><?php echo $row[$i]['displayName']; ?></h1>
+								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<p><?php echo $row[$i]['tweetDate']; ?></p>
+							</div>
+							<a><span class="glyphicon glyphicon-comment"></span></a>
+							<a><span class="glyphicon glyphicon-retweet"></span></a>
 						</div>
+						
 						<?php
 					}
-					var_dump($_POST);
+					
 					?>
 				</div>
 			</div>

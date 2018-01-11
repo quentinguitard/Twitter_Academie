@@ -1,3 +1,16 @@
+.top {
+	margin-bottom: 0px !important;
+}
+
+.banniere {
+	position: absolute !important;
+}
+
+.img-avatar {
+	position: relative !important;
+	margin-top: 14% !important;
+}
+
 .nav img {
 	width: 50px;
 	height: 50px;
@@ -36,6 +49,23 @@
 .arianne {
 	width: 650px;
 	padding: 15px;
+}
+
+.middle {
+	width: 100%;
+}
+
+.mid {
+	display: flex !important;
+	justify-content: space-between !important;
+}
+
+.nav-tweet {
+	float: right;
+}
+
+.edit {
+	float: right;
 }
 
 footer {
