@@ -7,17 +7,17 @@ class User
 	private $_displayName;
 	private $_mail;
 	private $_password;
-	private $_avatar;
+	private $_idUrlAvatar;
 	private $_theme;
 	private $_userStatus;
 
-	function __construct($fullName, $displayName, $mail, $password, $avatar = NULL, $theme = NULL, $userStatus = true)
+	function __construct($fullName, $displayName, $mail, $password, $idUrlAvatar = NULL, $theme = NULL, $userStatus = true)
 	{
 		$this->setFullName($fullName);
 		$this->setDisplayName($displayName);
 		$this->setMail($mail);
 		$this->setPassword($password);
-		$this->setAvatar($avatar);
+		$this->setAvatar($idUrlAvatar);
 		$this->setTheme($theme);
 		$this->setUserStatus($userStatus);
 	}
@@ -34,8 +34,8 @@ class User
 	public function getPassword(){
 		return $this->_password;
 	}
-	public function getAvatar(){
-		return $this->_avatar;
+	public function getiIdUrlAvatar(){
+		return $this->_idUrlAvatar;
 	}
 	public function getTheme(){
 		return $this->_theme;
@@ -57,8 +57,8 @@ class User
 	public function setPassword($password){
 		$this->_password = $password;
 	}
-	public function setAvatar($avatar=NULL){
-		$this->_avatar = $avatar;
+	public function setIdUrlAvatar($idUrlAvatar=NULL){
+		$this->_idUrlAvatar = $idUrlAvatar;
 	}
 	public function setTheme($theme=NULL){
 		$this->_theme = $theme;

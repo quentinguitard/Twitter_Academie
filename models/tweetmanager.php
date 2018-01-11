@@ -36,6 +36,16 @@ Class TweetManager {
         return $row;
     } 
 
+    public function showMyTweet($id){
+        $sql = "SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
+                JOIN user ON user.idUser = tweet.idUser
+                WHERE tweet.idUser=".$id."
+                ORDER BY tweetDate DESC";
+        $stmt = $this->_db->query($sql);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $row;
+    }
+
     public function reTweet($idTweet, $idUser){
     	$sql = "SELECT tweetContent FROM tweet WHERE idTweet = ".$idTweet;
     	$stmt = $this->_db->query($sql);

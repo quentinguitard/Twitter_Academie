@@ -122,17 +122,6 @@ $usermanager = new UserManager($db);
                         <input id="password" type="password" class="form-control" name="password" placeholder="Mot de passe">
                     </div>
 
-
-
-                    <div class="input-group">
-                        <div class="checkbox">
-                            <label>
-                                <input id="login-remember" type="checkbox" name="remember" value="1"> Rester connecté
-                            </label>
-                        </div>
-                    </div>
-
-
                     <div class="form-group">
                         <!-- Button -->
 

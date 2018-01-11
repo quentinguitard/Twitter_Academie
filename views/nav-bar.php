@@ -23,8 +23,8 @@
 				</ul>
 
 				<form class="navbar-form navbar-left">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
+					<div class="form-group search">
+						<input type="text" class="form-control" placeholder="Search" id="test">
 					</div>
 					<button type="submit" class="glyphicon glyphicon-search"></button>
 				</form>
@@ -33,6 +33,48 @@
 					<form method="post">
 						<input type="submit" class="btn btn-info" value="Deconection" name="disconect">
 					</form>
+
+<script>
+$(function() {
+
+   $( "#test" ).autocomplete({
+
+     source: function (requete, reponse){
+
+         $.ajax({
+
+             url: "models/search.php",
+
+             dataType: "json",
+
+             data: {
+
+                 q: $( "#test" ).val()
+
+             },
+
+             success: function(data) {
+
+               reponse(data);      
+
+             },
+
+         error: function(err) {
+
+           console.error(err);
+
+         }          
+
+       });
+
+     }
+
+  });
+
+});
+</script>
+
+
 <?php
 if(!empty($_POST['disconect'])){
 	session_destroy();
