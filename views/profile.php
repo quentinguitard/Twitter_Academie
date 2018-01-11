@@ -11,8 +11,21 @@
 	<title>Profile</title>
 </head>
 <body>
-
+<?php
+include "nav-bar.php";
+?>
 <h1>WESH C'est le profile !</h1>
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

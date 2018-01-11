@@ -7,7 +7,7 @@ $gertrude = new TweetManager($db);
 $row = $gertrude->showTweets($_SESSION['idUser']);
 var_dump($_SESSION['idUser']);
 
-$gertrude->reTweet(1, $_SESSION['idUser']);
+
 
 $countRow = count($row);
 
@@ -83,11 +83,10 @@ if(!empty($_POST['envoyer'])){
     $bob = new Tweet($_SESSION['idUser'],$_POST['tweetContent']);
     $gertrude->postTweet($bob);
 }
-
-
 for($i = 0 ; $i < $countRow; $i++){ ?>
 <h1><?php echo $row[$i]['displayName']; ?></h1>
 <p><?php echo $row[$i]['tweetContent']; ?></p>
+<p><?php echo $row[$i]['tweetDate']; ?></p>
 <?php
 }
 var_dump($_POST);
@@ -122,7 +121,7 @@ var_dump($_POST);
 			<div class="col-sm-2 well">
 				<div class="thumbnail">
 					<p>Upcoming Events:</p>
-					<img src="paris.jpg" alt="Paris" width="400" height="300">
+					<img src="paris.jpg" alt="Paris" width="40" height="30">
 					<p><strong>Paris</strong></p>
 					<p>Fri. 27 November 2015</p>
 					<button class="btn btn-primary">Info</button>
