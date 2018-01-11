@@ -23,14 +23,18 @@ $countRow = count($row);
 	<title>Profil</title>
 </head>
 <body>
-<?php
-include "nav-bar.php";
-?>
-<div>
-	<img src="image/wallpaper.jpg" width="100%" height="400">
-</div>
+	<?php
+	include "nav-bar.php";
+	?>
+	<div class="banniere">
+		<img src="image/wallpaper.jpg" width="100%" height="400">
+	</div>
 
-<nav class="navbar navbar-default">
+	<div class="img-avatar">
+		<img src="image/unicorn.jpg" class="img-circle" height="200" width="200" alt="Avatar">
+	</div>
+
+	<nav class="navbar navbar-default middle">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -44,50 +48,41 @@ include "nav-bar.php";
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="collapse navbar-collapse mid" id="bs-example-navbar-collapse-1 ">
 
-				<ul class="nav navbar-nav">
-					<li><a href="#"> Tweet <span class="sr-only"></span></a></li>
-					<li><a href="#"> Abonnements</a></li>
-					<li><a href="#"> Abonnés</a></li>
-					
-				</ul>
 
-				<div class="btn-group">
+				<div class="btn-group edit">
 					<button type="button" class="btn btn-default">Editer profil</button>
 
 				</div>
+
+				<div class="nav-tweet">
+					<ul class="nav navbar-nav">
+						<li><a href="#"> Tweet <span class="sr-only"></span></a></li>
+						<li><a href="#"> Abonnements</a></li>
+						<li><a href="#"> Abonnés</a></li>
+					</ul>
+				</div>
+
 
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
 
-<div class="container text-center">    
+	<div class="container text-center">    
 		<div class="row">
 			<div class="col-sm-3 well">
 				<div class="well">
-					<p><a href="index.php?controller=profile">My Profile</a></p>
-					<img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+					
+					<img src="image/unicorn.jpg" class="img-circle" height="200" width="200" alt="Avatar">
 				</div>
-				<div class="well">
-					<p><a href="#">Interests</a></p>
-					<p>
-						<span class="label label-default">News</span>
-						<span class="label label-primary">W3Schools</span>
-						<span class="label label-success">Labels</span>
-						<span class="label label-info">Football</span>
-						<span class="label label-warning">Gaming</span>
-						<span class="label label-danger">Friends</span>
-					</p>
-				</div>
-				<div class="alert alert-success fade in">
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-					<p><strong>Ey!</strong></p>
-					People are looking at your profile. Find out who.
-				</div>
-				<p><a href="#">Link</a></p>
-				<p><a href="#">Link</a></p>
-				<p><a href="#">Link</a></p>
+				
+				
+				<h1><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h1>
+				<p><a href="#">@<?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+				
+
+				
 			</div>
 			<div class="col-sm-7">
 
@@ -121,13 +116,20 @@ include "nav-bar.php";
 						}
 						for($i = 0 ; $i < $countRow; $i++){ ?>
 						<div class="arianne well">
-							<h1><?php echo $row[$i]['displayName']; ?></h1>
-							<p><?php echo $row[$i]['tweetContent']; ?></p>
-							<p><?php echo $row[$i]['tweetDate']; ?></p>
+							<div class="well">
+								<h1><?php echo $row[$i]['displayName']; ?></h1>
+								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<p><?php echo $row[$i]['tweetDate']; ?></p>
+							</div>
+
+							<a><span class="glyphicon glyphicon-comment"></span></a>
+							<a><span class="glyphicon glyphicon-retweet"></span></a>
 						</div>
+
+						
 						<?php
 					}
-					var_dump($_POST);
+					
 					?>
 				</div>
 			</div>
