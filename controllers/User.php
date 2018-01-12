@@ -17,7 +17,7 @@ class User
 		$this->setDisplayName($displayName);
 		$this->setMail($mail);
 		$this->setPassword($password);
-		$this->setAvatar($idUrlAvatar);
+		$this->setIdUrlAvatar($idUrlAvatar);
 		$this->setTheme($theme);
 		$this->setUserStatus($userStatus);
 	}
