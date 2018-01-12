@@ -4,7 +4,7 @@ $db = $database->getConnection();
 $usermanager = new UserManager($db); 
 $gertrude = new TweetManager($db);
 
-$row = $gertrude->showTweets($_SESSION['idUser']);
+$row = $gertrude->showMyTweet($_SESSION['idUser']);
 
 $countRow = count($row);
 
@@ -92,7 +92,7 @@ $countRow = count($row);
 						<div class="panel panel-default text-left">
 							<div class="panel-body">
 								<form method="post" action="">
-									<input class="text" name="tweetContent" type="textarea">
+									<textarea class="form-control space-down" name="tweetContent" cols="3"></textarea>
 									<input type="submit" class="btn btn-info" name="envoyer" value="Tweeter">
 									<a type="button" class="glyphicon glyphicon-picture"></a>
 								</form>  

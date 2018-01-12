@@ -36,7 +36,7 @@ $countRow = count($row);
 					<p><a href="index.php?controller=profile">My Profile</a></p>
 					<img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar">
 					<h4><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
-					<p><a href="#">@<?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+					<p><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				</div>
 			</div>
 			<div class="col-sm-7">
@@ -45,8 +45,8 @@ $countRow = count($row);
 					<div class="col-sm-12">
 						<div class="panel panel-default text-left">
 							<div class="panel-body">
-								<form method="post" action="">
-									<input class="text" name="tweetContent" type="textarea">
+								<form method="post" action="" class="form">
+									<textarea class="form-control space-down" name="tweetContent" cols="3"></textarea>
 									<input type="submit" class="btn btn-info" name="envoyer" value="Tweeter">
 									<a type="button" class="glyphicon glyphicon-picture"></a>
 								</form>  
@@ -56,7 +56,6 @@ $countRow = count($row);
 				</div>
 
 				<div class="row">
-
 					<div class="col-sm-9">
 						
 

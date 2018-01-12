@@ -27,17 +27,17 @@
 	margin-top: 10px !important;
 }
 
-.text {
-	height: 80px;
-	width: 540px;
-	border-radius: 4px;
+.space-down {
+	margin-bottom: 10px;
 }
 
 .arianne {
-	width: 650px;
+	width: 100%;
 	padding: 15px;
 }
-
+.col-sm-9 {
+	width: 100%;
+}
 footer {
       background-color: #555;
       color: white;
