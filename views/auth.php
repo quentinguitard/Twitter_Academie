@@ -97,6 +97,7 @@ $usermanager = new UserManager($db);
                     else {
                         $user = new User($_POST['fullName'],$_POST['displayName'],$_POST['mail'],$_POST['password']);
                         $usermanager->create($user);
+                        $_SESSION['idUser'] = $usermanager->exist($_POST['mail'], $_POST['password'])[0];
                         $_GET['controller'] = 'home';
                         echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
 
@@ -168,7 +169,6 @@ if(!empty($_POST['login']))
         $_GET['controller'] = 'home';
         $_SESSION['idUser'] = $usermanager->exist($_POST['mail'], $_POST['password'])[0];
         echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
-        echo "C'est bon tes co !";
     }
 
 }
