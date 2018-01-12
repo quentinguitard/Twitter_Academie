@@ -111,7 +111,7 @@ $countRow = count($row);
 
 							$bob = new Tweet($_SESSION['idUser'], $_POST['tweetContent']);
 							$gertrude->postTweet($bob);
-							$_GET['controller'] = 'home';
+							$_GET['controller'] = 'profile';
 							echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."');</script>";
 
 						}
