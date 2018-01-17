@@ -21,7 +21,7 @@ Class TweetManager {
     }
     public function showTweets($id){
 
-    	$sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
+    	$sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName, user.fullName FROM tweet 
 				JOIN follow ON follow.idFollowed=tweet.idUser
 				JOIN user ON user.idUser = tweet.idUser
 				WHERE idFollower ='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
@@ -44,7 +44,7 @@ Class TweetManager {
     }
 
     public function showMyTweet($id){
-        $sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
+        $sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName, user.fullName FROM tweet 
                 JOIN user ON user.idUser = tweet.idUser
                 WHERE tweet.idUser=".$id."
                 ORDER BY tweetDate DESC";
