@@ -90,10 +90,12 @@ $countRow = count($row);
 								else {
 								?>
 
-								<h1><?php echo "@".$row[$i]['displayName'] . " " . $row[$i]['fullName']; ?></h1>
-								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<h2><?php echo $row[$i]['fullName'];?></h2>
+								<h4><?php echo "@".$row[$i]['displayName']; ?></h4>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
 
+								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								
 								<?php } ?>
 							</div>
 							<button><span class="glyphicon glyphicon-comment"></span></button>
