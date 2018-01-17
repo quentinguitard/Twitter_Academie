@@ -57,6 +57,15 @@ class Tweet {
 	public function setDeleted($deleted = true){
 		$this->_deleted = $deleted;
 	}
+	public function reTweet(){
+		$idTweet = $_GET['idTweet'];
+		var_dump($idTweet);
+		$database = new Database();
+		$db = $database->getConnection();
+		$usermanager = new UserManager($db); 
+		$gertrude = new TweetManager($db);
+		$row = $gertrude->reTweet($idTweet);
+	}
 
 }
 

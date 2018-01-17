@@ -38,19 +38,13 @@
 $(function() {
 
    $( "#test" ).autocomplete({
-
      source: function (requete, reponse){
-
+       console.log('coucou', requete, reponse)
          $.ajax({
-
              url: "models/search.php",
-
              dataType: "json",
-
              data: {
-
                  q: $( "#test" ).val()
-
              },
 
              success: function(data) {

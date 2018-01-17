@@ -4,6 +4,7 @@ require "controllers/AuthController.php";
 require "controllers/User.php";
 require "controllers/Tweet.php";
 require "controllers/ProfileController.php";
+require "controllers/ReTweetController.php";
 require "controllers/EditProfileController.php";
 require "models/tweetmanager.php";
 require "models/database.php";

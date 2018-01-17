@@ -75,10 +75,10 @@ var_dump($_SESSION['idUser']);
 							<div class="well">
 								<h1><?php echo $row[$i]['displayName']; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
-								<p><?php echo $row[$i]['tweetDate']; ?></p>
+								<p><?php echo $row[$i]['tweetDate'];?></p>
 							</div>
 							<a><span class="glyphicon glyphicon-comment"></span></a>
-							<a><span class="glyphicon glyphicon-retweet"></span></a>
+							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
 						</div>
 						
 						<?php
@@ -110,6 +110,13 @@ var_dump($_SESSION['idUser']);
 <footer class="container-fluid text-center">
 	<p><span class="glyphicon glyphicon-copyright-mark"> Tweet Academy</span></p>
 </footer>
-
+<script>
+	function reTweet(idTweet){
+		$.get('?controller=ReTweet&action=reTweet&idTweet=' + idTweet).then(() => {
+			console.log('retweet');
+		})
+	}
+</script>
 </body>
 </html>
+
