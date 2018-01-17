@@ -35,9 +35,9 @@ $countRow = count($row);
 					<p><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				</div>
 				<div class="menu-count">
-					<p><a href="#">Tweet <span class="badge pull-right"> 42 </span></a></p>
-					<p><a href="#">Abonnements <span class="badge pull-right"> 26 </span></a></p>
-					<p><a href="#">Abonnés <span class="badge pull-right"> 10 </span></a></p>
+					<p><a href="#">Tweet <span class="badge pull-right"> <?php echo $gertrude->countMyTweet($_SESSION['idUser'])[0]; ?> </span></a></p>
+					<p><a href="#">Abonnements <span class="badge pull-right"> <?php echo $gertrude->countMyFollower($_SESSION['idUser'])[0]; ?> </span></a></p>
+					<p><a href="#">Abonnés <span class="badge pull-right"> <?php echo $gertrude->countMyFollowed($_SESSION['idUser'])[0]; ?> </span></a></p>
 				</div>
 			</div>
 			<div class="col-sm-7">
