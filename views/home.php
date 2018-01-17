@@ -30,7 +30,6 @@ $countRow = count($row);
 		<div class="row">
 			<div class="col-sm-3 well">
 				<div class="well">
-					<p><a href="index.php?controller=profile">My Profile</a></p>
 					<a href="index.php?controller=profile"><img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar"></a>
 					<h4><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
 					<p><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
