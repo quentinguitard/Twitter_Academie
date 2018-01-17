@@ -72,4 +72,28 @@ Class TweetManager {
     	
     }
 
+    public function countMyTweet($id){
+        $sql = "SELECT COUNT(idTweet) FROM tweet WHERE idUser = ". $id;
+        $stmt = $this->_db->query($sql);
+        $row = $stmt->fetch();
+        return $row;
+
+    }
+
+    public function countMyFollower($id){
+        $sql = "SELECT COUNT(idFollower) FROM follow WHERE idFollower = ". $id;
+        $stmt = $this->_db->query($sql);
+        $row = $stmt->fetch();
+        return $row;
+
+    }
+
+    public function countMyFollowed($id){
+        $sql = "SELECT COUNT(idFollowed) FROM follow WHERE idFollowed = ". $id;
+        $stmt = $this->_db->query($sql);
+        $row = $stmt->fetch();
+        return $row;
+
+    }
+
 }
