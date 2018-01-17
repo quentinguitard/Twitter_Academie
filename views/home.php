@@ -5,7 +5,6 @@ $usermanager = new UserManager($db);
 $gertrude = new TweetManager($db);
 $row = $gertrude->showTweets($_SESSION['idUser']);
 $countRow = count($row);
-var_dump($gertrude->countMyTweet($_SESSION['idUser']));
 
 ?>
 <!DOCTYPE html>
