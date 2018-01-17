@@ -22,8 +22,8 @@
 	line-height: normal !important;
 	top: 2px !important;
 }
-.well{
-
+.white{
+	background-color: white !important;
 }
 
 .btn-group {
@@ -41,6 +41,11 @@
 .col-sm-9 {
 	width: 100%;
 }
+
+.menu-count{
+	display: flex !important;
+}
+
 footer {
       background-color: #5bc0de;
       color: white;
