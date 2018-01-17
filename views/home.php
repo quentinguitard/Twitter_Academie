@@ -85,13 +85,15 @@ $countRow = count($row);
 								<h1><?php echo $row[$i]['displayName'] . " retweet from " .  $row_retweet["displayName"]; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
+
 								<?php }
 								else {
 								?>
 
-								<h1><?php echo $row[$i]['displayName']; ?></h1>
+								<h1><?php echo "@".$row[$i]['displayName'] . " " . $row[$i]['fullName']; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
+
 								<?php } ?>
 							</div>
 							<button><span class="glyphicon glyphicon-comment"></span></button>
