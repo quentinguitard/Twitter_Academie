@@ -31,9 +31,14 @@ $countRow = count($row);
 			<div class="col-sm-3 well">
 				<div class="well">
 					<p><a href="index.php?controller=profile">My Profile</a></p>
-					<img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-					<h4><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
-					<p><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+					<a href="index.php?controller=profile"><img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar"></a>
+					<h4><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
+					<p><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+				</div>
+				<div class="menu-count">
+					<p><a href="#">Tweet <span class="badge pull-right"> 42 </span></a></p>
+					<p><a href="#">Abonnements <span class="badge pull-right"> 26 </span></a></p>
+					<p><a href="#">Abonnés <span class="badge pull-right"> 10 </span></a></p>
 				</div>
 			</div>
 			<div class="col-sm-7">
@@ -70,7 +75,7 @@ $countRow = count($row);
 
 
 						<div class="arianne well">
-							<div class="well">
+							<div class="well white">
 
 								<?php 
 								
@@ -84,12 +89,13 @@ $countRow = count($row);
 								<?php }
 								else {
 								?>
+
 								<h1><?php echo $row[$i]['displayName']; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
 								<?php } ?>
 							</div>
-							<a><span class="glyphicon glyphicon-comment"></span></a>
+							<button><span class="glyphicon glyphicon-comment"></span></button>
 							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
 						</div>
 						

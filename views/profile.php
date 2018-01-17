@@ -52,15 +52,15 @@ $countRow = count($row);
 
 
 				<div class="btn-group edit">
-					<button type="button" class="btn btn-default">Editer profil</button>
+					<a href="index.php?controller=editProfile"><button type="button" class="btn btn-default">Editer profil</button></a>
 
 				</div>
 
 				<div class="nav-tweet">
 					<ul class="nav navbar-nav">
-						<li><a href="#"> Tweet <span class="sr-only"></span></a></li>
-						<li><a href="#"> Abonnements</a></li>
-						<li><a href="#"> Abonnés</a></li>
+						<li><a href="#"> Tweet </br> <span class="badge pull-right"> 26 </span></a></li>
+						<li><a href="#"> Abonnements </br> <span class="badge pull-right"> 26 </span></a></li>
+						<li><a href="#"> Abonnés </br> <span class="badge pull-right"> 26 </span></a></li>
 					</ul>
 				</div>
 
@@ -136,8 +136,9 @@ $countRow = count($row);
 								<?php } ?>
 							</div>
 
-							<a><span class="glyphicon glyphicon-comment"></span></a>
-							<a><span class="glyphicon glyphicon-retweet"></span></a>
+							<button><span class="glyphicon glyphicon-comment"></span></button>
+							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
+						
 						</div>
 
 						
