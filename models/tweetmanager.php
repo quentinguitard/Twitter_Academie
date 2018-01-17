@@ -26,7 +26,7 @@ Class TweetManager {
 				JOIN user ON user.idUser = tweet.idUser
 				WHERE idFollower ='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
 				UNION
-				SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
+				SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName, user.fullName FROM tweet 
 				JOIN user ON user.idUser = tweet.idUser
 				WHERE tweet.idUser=".$id."
 				ORDER BY tweetDate DESC";
