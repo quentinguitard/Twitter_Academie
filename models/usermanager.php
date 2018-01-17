@@ -10,7 +10,7 @@ class UserManager
         }
 
         public function create(User $user){
-        	$sql = "INSERT INTO user (fullName, displayName, mail, password) VALUES (?,?,?,?)";
+        	$sql = "INSERT INTO user (fullName, displayName, mail, password, theme) VALUES (?,?,?,?, 'Blue')";
                 $stmt = $this->_db->prepare($sql);
 
                 $stmt->bindValue(1, $user->getFullName(), PDO::PARAM_STR);
@@ -54,15 +54,12 @@ class UserManager
 
         }
 
-        public function update($id){
-                $sql = "UPDATE user SET fullName = ?, displayName = ?, mail = ?, password = ?, avatar = ?, theme = ? WHERE id =" . $id;
+        public function update($id, $fullName, $displayName, $theme){
+                $sql = "UPDATE user SET fullName = ?, displayName = ?, theme = ? WHERE idUser =" . $id;
                 $stmt = $this->_db->prepare($sql);
-                $stmt->bindValue(1, $user->getFullName(), PDO::PARAM_STR);
-                $stmt->bindValue(2, $user->getDisplayName(), PDO::PARAM_STR);
-                $stmt->bindValue(3, $user->getMail(), PDO::PARAM_STR);
-                $stmt->bindValue(4, hash('ripemd160',$user->getPassword()), PDO::PARAM_STR);
-                $stmt->bindValue(5, $user->getAvatar(), PDO::PARAM_STR);
-                $stmt->bindValue(6, $user->getTheme(), PDO::PARAM_STR);
+                $stmt->bindValue(1, $fullName, PDO::PARAM_STR);
+                $stmt->bindValue(2, $displayName, PDO::PARAM_STR);
+                $stmt->bindValue(3, $theme, PDO::PARAM_STR);
                 $stmt->execute();
         }
 

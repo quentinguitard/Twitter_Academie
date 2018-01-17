@@ -37,18 +37,13 @@ include "nav-bar.php";
 	            </div>
 
 	            <div class="form-group">
-	            	<label>Email</label>
-	                <input class="form-control" placeholder="Adresse email" type="mail" class="form-control" id="mail" name="mail" value="<?php echo $userMail; ?>">                                        
-	            </div>
-
-	            <div class="form-group">
 	            	<label>Theme :</label>
-		            	<select class="form-control">
-		            		<option value="Blue">Bleu</option>
-		            		<option value="Blue">Rouge</option>
-		            		<option value="Blue">Vert</option>
-		            		<option value="Blue">Rose</option>
-		            		<option value="Blue">Jaune</option>
+		            	<select class="form-control" name="theme">
+		            		<option value="Blue">Blue</option>
+		            		<option value="Red">Red</option>
+		            		<option value="Green">Green</option>
+		            		<option value="Pink">Pink</option>
+		            		<option value="Yellow">Yellow</option>
 		            	</select>
 	            	
 	            </div>
@@ -59,7 +54,7 @@ include "nav-bar.php";
 							<span class="input-group-btn">
 								<button class="btn btn-default btn-choose" type="button">Choose</button>
 							</span>
-							<input type="text" class="form-control" placeholder='Choose a file...' />
+							<input type="text" class="form-control" placeholder='Choose a file...' name="idUrlAvatar" />
 							<span class="input-group-btn">
 								<button class="btn btn-warning btn-reset" type="button">Reset</button>
 							</span>
@@ -74,20 +69,15 @@ include "nav-bar.php";
 
 			</form>
 		</div>
+<?php
+if(!empty($_POST['envoyer']) && !empty($_POST['displayName']) && !empty($_POST['fullName'])){
 
-		<button onclick="foo()">Click Me</button>
+    	$usermanager->update($_SESSION['idUser'], $_POST['fullName'], $_POST['displayName'], $_POST['theme']);
+		$_GET['controller'] = 'profile';
+		echo "<script> window.location.assign('index.php?controller=".$_GET['controller']."'); </script>";
 
-		<script>
-function foo(){
-	$.ajax({
-		url:"views/test.php", //the page containing php script
-		type: "POST", //request type
-		success:function(result){
-			alert(result);
-			 }
-	});
 }
-		</script>
+?>
 	</body>
 
 </html>

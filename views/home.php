@@ -6,8 +6,6 @@ $gertrude = new TweetManager($db);
 $row = $gertrude->showTweets($_SESSION['idUser']);
 $countRow = count($row);
 
-var_dump($_SESSION['idUser']);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,9 +71,23 @@ var_dump($_SESSION['idUser']);
 
 						<div class="arianne well">
 							<div class="well">
+
+								<?php 
+								
+								$row_retweet = $gertrude->reTweetBy($row[$i]['idTweet']); 
+
+								if( $row[$i]['idReTweetFrom'] !== null ){ ?>
+									
+								<h1><?php echo $row[$i]['displayName'] . " retweet from " .  $row_retweet["displayName"]; ?></h1>
+								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<p><?php echo $row[$i]['tweetDate'];?></p>
+								<?php }
+								else {
+								?>
 								<h1><?php echo $row[$i]['displayName']; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
+								<?php } ?>
 							</div>
 							<a><span class="glyphicon glyphicon-comment"></span></a>
 							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>

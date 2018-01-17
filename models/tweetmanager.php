@@ -21,12 +21,12 @@ Class TweetManager {
     }
     public function showTweets($id){
 
-    	$sql = "SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
-				JOIN follow ON follow.idFollowed=tweet.idUser 
+    	$sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
+				JOIN follow ON follow.idFollowed=tweet.idUser
 				JOIN user ON user.idUser = tweet.idUser
 				WHERE idFollower ='".$id."' AND idFollowed = (SELECT idFollowed FROM follow WHERE idFollower = '".$id."')
 				UNION
-				SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
+				SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
 				JOIN user ON user.idUser = tweet.idUser
 				WHERE tweet.idUser=".$id."
 				ORDER BY tweetDate DESC";
@@ -34,10 +34,17 @@ Class TweetManager {
     	$stmt = $this->_db->query($sql);
     	$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $row;
-    } 
+    }
+
+    public function reTweetBy($idTweet){
+        $sql = "SELECT displayName FROM user JOIN tweet ON idReTweetFrom = user.idUser WHERE tweet.idTweet = ".$idTweet;
+        $stmt = $this->_db->query($sql);
+        $row = $stmt->fetch();
+        return $row;
+    }
 
     public function showMyTweet($id){
-        $sql = "SELECT idTweet, tweetContent, tweetDate, user.displayName FROM tweet 
+        $sql = "SELECT idTweet, tweetContent, tweetDate, idReTweetFrom, user.displayName FROM tweet 
                 JOIN user ON user.idUser = tweet.idUser
                 WHERE tweet.idUser=".$id."
                 ORDER BY tweetDate DESC";

@@ -118,9 +118,22 @@ $countRow = count($row);
 						for($i = 0 ; $i < $countRow; $i++){ ?>
 						<div class="arianne well">
 							<div class="well">
+								<?php 
+								
+								$row_retweet = $gertrude->reTweetBy($row[$i]['idTweet']); 
+
+								if( $row[$i]['idReTweetFrom'] !== null ){ ?>
+									
+								<h1><?php echo $row[$i]['displayName'] . " retweet from " .  $row_retweet["displayName"]; ?></h1>
+								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<p><?php echo $row[$i]['tweetDate'];?></p>
+								<?php }
+								else {
+								?>
 								<h1><?php echo $row[$i]['displayName']; ?></h1>
 								<p><?php echo $row[$i]['tweetContent']; ?></p>
-								<p><?php echo $row[$i]['tweetDate']; ?></p>
+								<p><?php echo $row[$i]['tweetDate'];?></p>
+								<?php } ?>
 							</div>
 
 							<a><span class="glyphicon glyphicon-comment"></span></a>

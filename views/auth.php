@@ -89,9 +89,9 @@ $usermanager = new UserManager($db);
                 <?php 
                 if(!empty($_POST['envoyer']) && !empty($_POST['displayName']) && !empty($_POST['fullName']) && !empty($_POST['mail']) && !empty($_POST['password'])){
 
-                    if($usermanager->verification($_POST['mail'],$_POST['displayName']) == false){
+                    if($usermanager->verification($_POST['mail'], $_POST['displayName']) == false){
 
-                        echo "<p>Wrong Password OR Username</p>";
+                        echo "<p>Wrong Email OR Username</p>";
 
                     }
                     else {
