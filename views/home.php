@@ -20,6 +20,7 @@ $countRow = count($row);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Tweet Academy</title>
+
 </head>
 <body>
 	<?php
@@ -47,7 +48,7 @@ $countRow = count($row);
 						<div class="panel panel-default text-left">
 							<div class="panel-body">
 								<form method="post" action="" class="form">
-									<textarea class="form-control space-down" name="tweetContent" cols="3"></textarea>
+									<textarea class="form-control space-down" name="tweetContent" cols="2"></textarea>
 									<input type="submit" class="btn btn-info" name="envoyer" value="Tweeter">
 									<a type="button" class="glyphicon glyphicon-picture"></a>
 								</form>  
@@ -98,13 +99,28 @@ $countRow = count($row);
 								
 								<?php } ?>
 							</div>
-							<button><span class="glyphicon glyphicon-comment"></span></button>
-							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
+							<button class="blue" onclick="toggle(event);"><span class="glyphicon glyphicon-comment"></span></button>
+							<button class="blue" onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
+							<div class="toggle-comment">
+								<form method="post" action="" class="form">
+									<textarea class="form-control space-down" name="commentContent-<?php echo $i; ?>" cols="1	"></textarea>
+									<input type="submit" class="btn btn-info" name="comment" value="Comment">
+								</form>
+							</div>
 						</div>
 						
-						<?php
+					<?php
+						if(!empty($_POST['comment'])){
+							if(isset($_POST["commentContent-$i"])){
+								var_dump($row[$i]['idTweet']);
+								echo $_POST["commentContent-$i"];
+								$gertrude->tweetComment($_SESSION['idUser'], $row[$i]['idTweet'], $_POST["commentContent-$i"]);
+
+							}
+						}
+
 					}
-					
+
 					?>
 				</div>
 			</div>
@@ -112,17 +128,13 @@ $countRow = count($row);
 		</div>
 		<div class="col-sm-2 well">
 			<div class="thumbnail">
-				<p>Upcoming Events:</p>
-				<img src="paris.jpg" alt="Paris" width="40" height="30">
-				<p><strong>Paris</strong></p>
-				<p>Fri. 27 November 2015</p>
-				<button class="btn btn-primary">Info</button>
+				
 			</div>      
 			<div class="well">
-				<p>ADS</p>
+		
 			</div>
 			<div class="well">
-				<p>ADS</p>
+			
 			</div>
 		</div>
 	</div>
@@ -131,12 +143,21 @@ $countRow = count($row);
 <footer class="container-fluid text-center">
 	<p><span class="glyphicon glyphicon-copyright-mark"> Tweet Academy</span></p>
 </footer>
+
 <script>
 	function reTweet(idTweet){
 		$.get('?controller=ReTweet&action=reTweet&idTweet=' + idTweet).then(() => {
 			console.log('retweet');
 		})
 	}
+
+	function toggle(event){
+			   console.log($(event.target).siblings(".toggle-comment"));
+
+			 $(event.target).siblings(".toggle-comment").css("display", "initial");
+			    
+			}
+
 </script>
 </body>
 </html>

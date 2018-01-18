@@ -63,3 +63,19 @@ footer {
 a:hover, a:visited, a:link {
 	color: #5bc0de;
 }
+
+button {
+	background-color: rgba(0,0,0,0);
+	border: 0;
+}
+
+.blue {
+	color: rgb(91,192,222);
+}
+
+.blue:hover{
+	color: #31b0d5;
+}
+.toggle-comment {
+	display: none;
+}

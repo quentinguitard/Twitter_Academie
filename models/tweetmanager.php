@@ -96,4 +96,13 @@ Class TweetManager {
 
     }
 
+    public function tweetComment($idUser, $idTweet, $commentContent){
+        $sql = "INSERT INTO comment (idUSER, idTweet, commentContent) VALUES (?,?,?)";
+        $stmt = $this->_db->prepare($sql);
+        $stmt->bindValue(1, $idUser);
+        $stmt->bindValue(2, $idTweet);
+        $stmt->bindValue(3, $commentContent);
+        $stmt->execute();
+        
+    }
 }
