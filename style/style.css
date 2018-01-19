@@ -144,3 +144,6 @@ body{
 	margin-left: 180px;
 }
 
+#signupbox{
+	display: none;
+}
