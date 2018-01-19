@@ -36,7 +36,7 @@
 <?php
 if(isset($_POST['search'])){
 
-		$_SESSION['search'] = $_POST['search']);
+		$_SESSION['search'] = $_POST['search'];
 		echo "<script> window.location.assign('index.php?controller=search'); </script>";
 
 }
