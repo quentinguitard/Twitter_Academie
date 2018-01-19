@@ -79,3 +79,9 @@ button {
 .toggle-comment {
 	display: none;
 }
+.nav-tweet {
+	float: right;
+}
+.edit {
+	float: right;
+}

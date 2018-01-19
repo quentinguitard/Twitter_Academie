@@ -148,6 +148,8 @@ $countRow = count($row);
 	function reTweet(idTweet){
 		$.get('?controller=ReTweet&action=reTweet&idTweet=' + idTweet).then(() => {
 			console.log('retweet');
+			window.location.assign('index.php?controller=home');
+
 		})
 	}
 

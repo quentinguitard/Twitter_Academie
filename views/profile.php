@@ -16,7 +16,7 @@ $countRow = count($row);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style/profil.css">
+	<link rel="stylesheet" type="text/css" href="style/home.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,10 +28,6 @@ $countRow = count($row);
 	?>
 	<div class="banniere">
 		<img src="image/wallpaper.jpg" width="100%" height="400">
-	</div>
-
-	<div class="img-avatar">
-		<img src="image/unicorn.jpg" class="img-circle" height="200" width="200" alt="Avatar">
 	</div>
 
 	<nav class="navbar navbar-default middle">
@@ -136,8 +132,8 @@ $countRow = count($row);
 								<?php } ?>
 							</div>
 
-							<button><span class="glyphicon glyphicon-comment"></span></button>
-							<button onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
+							<button class="blue" onclick="toggle(event);"><span class="glyphicon glyphicon-comment"></span></button>
+							<button class="blue" onclick="reTweet(<?php echo $row[$i]['idTweet']; ?>)"><span class="glyphicon glyphicon-retweet"></span></button>
 						
 						</div>
 
@@ -152,17 +148,13 @@ $countRow = count($row);
 		</div>
 		<div class="col-sm-2 well">
 			<div class="thumbnail">
-				<p>Upcoming Events:</p>
-				<img src="paris.jpg" alt="Paris" width="40" height="30">
-				<p><strong>Paris</strong></p>
-				<p>Fri. 27 November 2015</p>
-				<button class="btn btn-primary">Info</button>
+			
 			</div>      
 			<div class="well">
-				<p>ADS</p>
+			
 			</div>
 			<div class="well">
-				<p>ADS</p>
+
 			</div>
 		</div>
 	</div>
@@ -171,6 +163,21 @@ $countRow = count($row);
 <footer class="container-fluid text-center">
 	<p><span class="glyphicon glyphicon-copyright-mark"> Tweet Academy</span></p>
 </footer>
+<script>
+	function reTweet(idTweet){
+		$.get('?controller=ReTweet&action=reTweet&idTweet=' + idTweet).then(() => {
+			console.log('retweet');
+			window.location.assign('index.php?controller=profile');
+		})
+	}
 
+	function toggle(event){
+			   console.log($(event.target).siblings(".toggle-comment"));
+
+			 $(event.target).siblings(".toggle-comment").css("display", "initial");
+			    
+			}
+
+</script>
 </body>
 </html>
