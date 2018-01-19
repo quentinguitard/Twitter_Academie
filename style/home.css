@@ -49,12 +49,7 @@
 .panel-body{
 	background-color: rgba(91,192,222,0.2);
 }
-footer {
-      background-color: #5bc0de;
-      color: white;
-      padding: 15px;
-      bottom: 0px;
-    }
+
 
 .container {
 	width: 80%;
@@ -106,3 +101,10 @@ button {
 	font-size: 20px;
 
 }
+
+footer {
+      background-color: #5bc0de;
+      color: white;
+      padding: 15px;
+      bottom: 0px;
+    }
