@@ -68,6 +68,12 @@ class UserManager
 
         }
 
-        public function searchProfil(){}
+        public function searchProfil($search){
+                $sql = "SELECT * FROM user WHERE fullName LIKE '%".$search."%' OR displayName LIKE '%".$search."%'";
+                $stmt = $this->_db->query($sql);
+                $row = $stmt->fetchAll();
+                return $row;
+        }
+        
 }
 

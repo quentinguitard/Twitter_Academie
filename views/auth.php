@@ -36,7 +36,7 @@ $usermanager = new UserManager($db);
       <ul class="nav navbar-nav navbar-right">
         <li><p class="navbar-text">Vous avez déjà un compte ?</p></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Se connecter </b> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="$('#loginbox').hide(); $('#signupbox').show()"><b>Se connecter </b> <span class="caret"></span></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
                      <div class="row">
@@ -53,12 +53,7 @@ $usermanager = new UserManager($db);
                                              <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                         </div>
                                         <div class="form-group">
-                                             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                        </div>
-                                        <div class="checkbox">
-                                             <label>
-                                             <input type="checkbox"> keep me logged-in
-                                             </label>
+                                             <input type="submit" class="btn btn-primary btn-block">Sign in</button>
                                         </div>
                                  </form>
                             </div>
@@ -150,7 +145,7 @@ $usermanager = new UserManager($db);
     </div>
 </div> 
 
-
+<div id="signupbox">
 <form action="" method="post">
     <div class="form-group">
         <label for="mail">Email address:</label>
@@ -162,6 +157,7 @@ $usermanager = new UserManager($db);
     </div>
     <input type="submit" class="btn btn-default" value='Login' name="login">
 </form>
+</div>
 <?php
 if(!empty($_POST['login']))
 {

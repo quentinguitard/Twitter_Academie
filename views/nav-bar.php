@@ -22,9 +22,9 @@
 					<li><img src="image/logo.png" /><a class="navbar-brand" href="index.php">Tweet Academy</a></li>
 				</ul>
 
-				<form class="navbar-form navbar-left">
+				<form class="navbar-form navbar-left" method="post">
 					<div class="form-group search">
-						<input type="text" class="form-control" placeholder="Search" id="test">
+						<input type="text" class="form-control" placeholder="Search" id="test" name="search">
 					</div>
 					<button type="submit" class="glyphicon glyphicon-search blue"></button>
 				</form>
@@ -33,7 +33,15 @@
 					<form method="post">
 						<input type="submit" class="btn btn-info" value="Deconection" name="disconect">
 					</form>
+<?php
+if(isset($_POST['search'])){
 
+		$_SESSION['search'] = $_POST['search']);
+		echo "<script> window.location.assign('index.php?controller=search'); </script>";
+
+}
+
+?>
 <script>
 $(function() {
 
