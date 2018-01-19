@@ -33,7 +33,7 @@ $countRow = count($row);
 				<div class="well">
 					<a href="index.php?controller=profile"><img src="image/unicorn.jpg" class="img-circle" height="65" width="65" alt="Avatar"></a>
 					<h4><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h4>
-					<p><a href="index.php?controller=profile"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+					<p><a href="index.php?controller=profile"><?php echo "@".$usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				</div>
 				<div class="menu-count">
 					<p><a href="#">Tweet <span class="badge pull-right"> <?php echo $gertrude->countMyTweet($_SESSION['idUser'])[0]; ?> </span></a></p>
@@ -90,12 +90,15 @@ $countRow = count($row);
 								<?php }
 								else {
 								?>
-
+								<div class="line-blaze">
+									<div class="blaze">
 								<h2><?php echo $row[$i]['fullName'];?></h2>
 								<h4><?php echo "@".$row[$i]['displayName']; ?></h4>
+							</div>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
+							</div>
 
-								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<p class="texte-tweet"><?php echo $row[$i]['tweetContent']; ?></p>
 								
 								<?php } ?>
 							</div>

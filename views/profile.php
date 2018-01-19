@@ -46,18 +46,17 @@ $countRow = count($row);
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse mid" id="bs-example-navbar-collapse-1 ">
 
+				<div class="nav-tweet">
+					<ul class="nav navbar-nav">
+						<li><a href="#"> Tweet <span class="badge pull-right"> <?php echo $gertrude->countMyTweet($_SESSION['idUser'])[0]; ?> </span></a></li>
+					<li><a href="#"> Abonnements <span class="badge pull-right"> <?php echo $gertrude->countMyFollower($_SESSION['idUser'])[0]; ?> </span></a></li>
+					<li><a href="#"> Abonnés <span class="badge pull-right"> <?php echo $gertrude->countMyFollowed($_SESSION['idUser'])[0]; ?> </span></a></li>
+					</ul>
+				</div>
 
 				<div class="btn-group edit">
 					<a href="index.php?controller=editProfile"><button type="button" class="btn btn-default">Editer profil</button></a>
 
-				</div>
-
-				<div class="nav-tweet">
-					<ul class="nav navbar-nav">
-						<li><a href="#"> Tweet </br> <span class="badge pull-right"> 26 </span></a></li>
-						<li><a href="#"> Abonnements </br> <span class="badge pull-right"> 26 </span></a></li>
-						<li><a href="#"> Abonnés </br> <span class="badge pull-right"> 26 </span></a></li>
-					</ul>
 				</div>
 
 
@@ -76,7 +75,7 @@ $countRow = count($row);
 				
 				<h1><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['fullName']; ?></a></h1>
 
-				<p><a href="#"><?php echo $usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
+				<p><a href="#"><?php echo "@".$usermanager->select($_SESSION['idUser'])['displayName']; ?></a></p>
 				
 
 				
@@ -113,7 +112,7 @@ $countRow = count($row);
 						}
 						for($i = 0 ; $i < $countRow; $i++){ ?>
 						<div class="arianne well">
-							<div class="well">
+							<div class="well white">
 								<?php 
 								
 								$row_retweet = $gertrude->reTweetBy($row[$i]['idTweet']); 
@@ -126,9 +125,15 @@ $countRow = count($row);
 								<?php }
 								else {
 								?>
-								<h1><?php echo $row[$i]['displayName']; ?></h1>
-								<p><?php echo $row[$i]['tweetContent']; ?></p>
+								<div class="line-blaze">
+									<div class="blaze">
+								<h2><?php echo $row[$i]['fullName'];?></h2>
+								<h4><?php echo "@".$row[$i]['displayName']; ?></h4>
+							</div>
 								<p><?php echo $row[$i]['tweetDate'];?></p>
+							</div>
+
+								<p class="texte-tweet"><?php echo $row[$i]['tweetContent']; ?></p>
 								<?php } ?>
 							</div>
 

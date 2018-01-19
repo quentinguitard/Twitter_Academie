@@ -79,9 +79,30 @@ button {
 .toggle-comment {
 	display: none;
 }
-.nav-tweet {
-	float: right;
-}
+
 .edit {
 	float: right;
+}
+
+.line-blaze {
+	display: flex;
+	justify-content: space-between;
+}
+
+.line-blaze h2 {
+	margin: 0;
+}
+
+.blaze {
+	display: flex;
+}
+
+.blaze p {
+	margin: 0;
+	line-height: 35px;
+}
+
+.texte-tweet {
+	font-size: 20px;
+
 }
